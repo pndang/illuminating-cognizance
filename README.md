@@ -37,10 +37,10 @@ The subject dataset contains information on major power outages in the continent
 
 1. Combined OUTAGE.START.DATE and OUTAGE.START.TIME into one column OUTAGE.START, and combined OUTAGE.RESTORATION.DATE and OUTAGE.RESTORATION.TIME into one column OUTAGE.END
 - For both outage start and end times, combining the date and time columns helps convert the times to type datetime and simplify the data by having two less, yet more meaningful columns in regards to reflecting the data generating process, which is to record the date and time an outage occurred. Having date and time together in the datetime data type also permits a wider range of operations and plotting capabilities to utilize.
-<br>
+<br></br>
 2. Converted outage duration from minutes to hours (DURATION.HR)
 - Perhaps a personal preference, converting numerical time data to a higher-order unit can simplify the EDA process by dealing with smaller numbers, which are oftentimes more intuitive and easier to process for the human eye. The connection to the data generating process is the same, which is to record the length (duration) of an outage.
-<br>
+<br></br>
 3. The columns OUTAGE.START.DATE, OUTAGE.RESTORATION.DATE, OUTAGE.RESTORATION.TIME are dropped, which helps simplify the analysis and reduce memory use by keeping a smaller dataset. OUTAGE.START.TIME was not dropped as it is used in later steps.
 
 Data snippet:
@@ -52,6 +52,16 @@ Data snippet:
 | Minnesota    | MN            |            -1.5 | 8:00:00 PM          | severe weather     | heavy wind              |              nan |       10.87 |              50447 |            5.47874 |    50         |
 | Minnesota    | MN            |            -0.1 | 4:30:00 AM          | severe weather     | thunderstorm            |              nan |       11.79 |              51598 |            5.47874 |    42.5       |
 | Minnesota    | MN            |             1.2 | 2:00:00 AM          | severe weather     | nan                     |              250 |       13.07 |              54431 |            5.47874 |    29         |
+
+### Univariate Analysis
+
+Figure 1
+<iframe src='assets/uni_1.html' width=800 height=600 frameBorder=0></iframe>
+
+Figure 1 shows the distribution of outage duration in hours. Outages that lasted under 5 hours are the most common at 38.8%, followed by outages that lasted between 5 to 15 hours at 14.1%. The histogram then gradually flatten out with decreasing proportions as duration increases.
+
+
+
 
 ## Assessment of Missingness
 
