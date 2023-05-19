@@ -26,15 +26,17 @@ The subject dataset contains information on major power outages in the continent
 
 ### Analysis Question and Significance
 
-<b>Main Question</b>: Do outage attributes, specifically start time, consumption information, and anomaly level, seem to influence the nature of the outages, as measured by duration and cause category?
+<b>Main Question</b>:  Do outage attributes, specifically start time, consumption information, and anomaly level, seem to influence the nature of the outages, as measured by duration and cause category?
 - If there are trends, are they statistically significant?
 
-<b>Significance</b>: Analyzing the relationships between metrics of major power outages can provide data-driven insights that may lead to a better understanding of the factors that contribute to, and the outcomes, of outages. In the context of urban planning, understanding power outages can significantly assist planners and city officials in coordinating preventive/response mechanisms to improve the lives of city inhabitants
+<b>Significance</b>:  Analyzing the relationships between metrics of major power outages can provide data-driven insights that may lead to a better understanding of the factors that contribute to, and the outcomes, of outages. In the context of urban planning, understanding power outages can significantly assist planners and city officials in coordinating preventive/response mechanisms to improve the lives of city inhabitants.
 
 ## Cleaning and EDA
 
 ### Data Cleaning
 
+1. Combined OUTAGE.START.DATE and OUTAGE.START.TIME into one column OUTAGE.START, and combined OUTAGE.RESTORATION.DATE and OUTAGE.RESTORATION.TIME into one column OUTAGE.END
+- For both outage start and end times, combining the date and time columns helps convert the times to type datetime and simplify the data by having two less, yet more meaningful columns in regards to reflecting the data generating process, which is record the (date and time) an outage occurred. Having date and time together in the datetime data type also permits a much wider range of operations and plots to utilize.
 
 ## Assessment of Missingness
 
