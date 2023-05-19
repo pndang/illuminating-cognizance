@@ -116,15 +116,22 @@ The **DEMAND.LOSS.MW** column could be **NMAR - Not Missing At Random**; this is
 ### Missingness Dependency
 
 DEMAND.LOSS.MW could possibly <b>depend</b> on outage start time 
-- Rationale: A short outage that began outside of high-demand hours (4 PM - 9 PM) is likely to not have data for DEMAND.LOSS.MW
+- Rationale: A short outage that began outside of, or further from, high-demand hours (4 PM - 9 PM) is likely to not have data for DEMAND.LOSS.MW
 
 DEMAND.LOSS.MW is likely to <b>not depend</b> on PCT_WATER_INLAND
 - Recall: PCT_WATER_INLAND ~ percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %)
 
+#### Dependency Test 1
+
 Figure 7
 <iframe src='assets/aom_perm1_observed_dist.html' width=1000 height=500 frameBorder=0></iframe>
 
-Figure 7 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an unusually high average ONI Index at 2.3. 
+Figure 7 shows the distribution of outage start times by whether peak demand lost was missing. The median start time of outages **with** peak demand is greater, and closer to the peak demand window, than the median start time of outages **without** peak demand; this observation agrees the rationale above.
+
+##### Test information:
+
+
+
 
 ## Hypothesis Testing
 
