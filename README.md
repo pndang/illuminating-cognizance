@@ -116,10 +116,10 @@ The **DEMAND.LOSS.MW** column could be **NMAR - Not Missing At Random**; this is
 ### Missingness Dependency
 
 DEMAND.LOSS.MW could possibly <b>depend</b> on outage start time 
-- Rationale: A short outage that began outside of, or further from, high-demand hours (4 PM - 9 PM) is likely to not have data for DEMAND.LOSS.MW
+- Rationale: A short outage that began outside of, or further from, high-demand hours (4 PM - 9 PM) is likely to not have data for DEMAND.LOSS.MW.
 
 DEMAND.LOSS.MW is likely to <b>not depend</b> on PCT_WATER_INLAND
-- Recall: PCT_WATER_INLAND ~ percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %)
+- Recall: PCT_WATER_INLAND ~ percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %).
 
 #### Dependency Test 1 (start times)
 
@@ -148,14 +148,14 @@ Figure 8
 Figure 8 shows the simulated test statistics, differences of median outage start times in seconds, including the observed difference and the 5% significance level. As shown, our observation lies to the left of the significance level.
 
 **Result**: P-value = 0.1834, **Fail to reject** the null hypothesis at a 5% significance level 
-- Missingness of peak demand lost is likely to not depend on outage start times
+- Missingness of peak demand lost is likely to not depend on outage start times.
 
 #### Dependency Test 2 (state water percentage)
 
 Figure 9
 <iframe src='assets/aom_perm2_observed_dist.html' width=1000 height=500 frameBorder=0></iframe>
 
-(Note: ignore the "mean" annotation on the boxplot, the mean vertical line only applies to the histogram)
+(Note: ignore the "mean" annotation on the boxplots, the mean vertical line only applies to the histogram)
 
 Figure 9 shows the distribution of state water percentage (PCT_WATER_INLAND) by whether peak demand lost is missing. The two distributions have the same median, and the mean is signficantly biased towards outliers states with high proportions of inland water. Although the distribution is not exactly normal, the same median indicates that the two distributions are centered at the same location, and therefore the **Kolmogorov-Smirnov statistic** may be appropriate.
 
@@ -172,7 +172,7 @@ Figure 10 shows the cumulative distribution functions of the two distributions a
 
 **Significance level**: 5%
 
-**Method**: shuffle DEMAND.MISSING (status of missing) column to simulate under null hypothesis
+**Method**: shuffle DEMAND.MISSING (status of missing) column to simulate under null hypothesis.
 
 Figure 11
 <iframe src='assets/aom_perm2_results.html' width=1000 height=500 frameBorder=0></iframe>
@@ -180,8 +180,60 @@ Figure 11
 Figure 11 shows the empirical distribution of the K-S Statistic as previously described. Our observed K-S Statistic is roughly 0.084 and lies to the right of the 5% significance level.
 
 **Result**: P-value = 0.0042, **Reject** the null hypothesis at a 5% significance level 
-- Missingness of peak demand lost **could possibly** depend on the state proportion of inland water relative to continental U.S. (possibly MAR dependent)
+- Missingness of peak demand lost **could possibly** depend on the state proportion of inland water relative to continental U.S. (possibly MAR dependent).
 
 ## Hypothesis Testing
 
+**General purpose**: Test the observed distribution of anomaly level by cause category
 
+### Preliminary Inspections
+
+Figure 12
+<iframe src='assets/hyp1_oni_dist.html' width=1000 height=500 frameBorder=0></iframe>
+
+Figure 12 indicates that the observed distribution of anomaly levels is non-normal. Since the distribution is right-skewed, the mean is biased towards higher anomaly levels.
+
+Figure 13
+<iframe src='assets/hyp1_oni_obs_dist_equipment failure.html' width=1000 height=500 frameBorder=0></iframe>
+
+<iframe src='assets/hyp1_oni_obs_dist_fuel supply emergency.html' width=1000 height=500 frameBorder=0></iframe>
+
+<iframe src='assets/hyp1_oni_obs_dist_internal attack.html' width=1000 height=500 frameBorder=0></iframe>
+
+<iframe src='assets/hyp1_oni_obs_dist_severe weather.html' width=1000 height=500 frameBorder=0></iframe>
+
+<iframe src='assets/hyp1_oni_obs_dist_system operability disruption.html' width=1000 height=500 frameBorder=0></iframe>
+
+Figure 13 shows the observed distribution of anomaly levels at a more granular level, that is for each cause category. As observed in Figure 12, besides equipment failure (normal with a slight mean deviation) and fuel supply emergency (normal with a stretch), the distributions are non-normal.
+
+**Conclusion** from preliminary inspection: 
+1. A **non-parametric** test (permutation) seems appropriate because the observed distribution of anomaly levels is non-normal.
+
+2. **Significance**: In relation to the initial **main question**, since we are interested in assessing the relationship between the outage attributes; a good assessment of the anomaly levels can be whether, or not, **extreme** values of the ONI indices indicate different outage cause categories in comparison to regular values.
+- Details of which values are considered extreme are in the test description below.
+
+### Test Begin
+
+<b>Null Hypothesis</b>: The distribution of outage cause categories with <b>extreme</b> anomaly levels is <b>the same</b> as in outage cause categories with <b>regular</b> anomaly levels. Any observed difference is due to chance alone.
+
+
+<b>Alternative Hypothesis</b>: The distributions of outage cause categories between the two groups are different. The observed difference is <b>unlikely</b> due to chance alone.
+
+**Test statistic**: Total Variation Distance
+- The TVD is appropriate because it permits a direct comparison of the discrepancy in cause category distributions between extreme versus regular anomaly values, and the subject distribution is categorical.
+
+**Significance level**: 5%
+
+**Method**: shuffle the binary column that indicates whether the associated anomaly level is extreme to simulate under null hypothesis
+- Anomaly levels above 0.5 or below -0.5 are considered extreme and are indicative of El Nino and La Nina, respectively.
+
+Figure 14
+<iframe src='assets/hyp1_results.html' width=1000 height=500 frameBorder=0></iframe>
+
+Figure 14 shows the empirical distribution of the simulated TVDs, in which our observed TVD lies to the right of the 5% signficance level. 
+
+**Conclusion**: P-value = 0.0022, **Reject** the null hypothesis at a 5% significance level. 
+
+The distribution of cause categories in outages with **extreme** anomaly levels are statistically significantly **different** than outages with **regular** anomaly levels.
+
+## Thank you!
