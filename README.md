@@ -96,12 +96,12 @@ The pivot table above shows the average outage duration aggregated by state and 
 #### Interesting multivariate plots
 
 Figure 5
-<iframe src='assets/multi_1.html' width=1100 height=900 frameBorder=0></iframe>
+<iframe src='assets/multi_1.html' width=1111 height=900 frameBorder=0></iframe>
 
 Figure 5 shows average outage duration aggregated by state and cause categories. Looking at Michigan for example, equipment failure has the greatest average outage duration at approximately 440.6 hours, followed by severe weather at 80.5 hours. Notably, severe weather seems to be a common cause in virtually every state.
 
 Figure 6
-<iframe src='assets/multi_2.html' width=1000 height=500 frameBorder=0></iframe>
+<iframe src='assets/multi_2.html' width=1111 height=500 frameBorder=0></iframe>
 
 Figure 6 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an unusually high average ONI Index at 2.3. 
 
@@ -128,8 +128,18 @@ Figure 7
 
 Figure 7 shows the distribution of outage start times by whether peak demand lost was missing. The median start time of outages **with** peak demand is greater, and closer to the peak demand window, than the median start time of outages **without** peak demand; this observation agrees the rationale above.
 
-##### Test information:
+<b>Null Hypothesis</b>: The start times between outages where the amount of peak 
+demand lost <b>is</b> missing, 
+and outages where the amount of peak demand lost is <b>not</b> missing, have <b>the same</b> distribution. Any observed difference is due to chance alone.
 
+<b>Alternative Hypothesis</b>: The outage start times by missingness of peak 
+demand lost have <b>different</b> distributions. The observed difference is <b>unlikely</b> due to chance alone.
+
+Test statistic: difference in group median start time
+
+Significance level: 5%
+
+Method: shuffle DEMAND.MISSING (status of missing) column to simulate under null hypothesis
 
 
 
