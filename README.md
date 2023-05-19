@@ -186,6 +186,8 @@ Figure 11 shows the empirical distribution of the K-S Statistic as previously de
 
 **General purpose**: Test the observed distribution of anomaly level by cause category
 
+**Selected Columns**: ANOMALY.LEVEL and CAUSE.CATEGORY
+
 ### Preliminary Inspections
 
 Figure 12
