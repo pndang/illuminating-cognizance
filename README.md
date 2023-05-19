@@ -10,7 +10,7 @@ The subject dataset contains information on major power outages in the continent
 - Number of observations: 1534 rows/outages
 - Relevant columns/attributes:
     - **U.S._STATE**: Represents all the states in the continental U.S.
-    - **POSTAL.CODE**: Represents the postal code of the U.S. states
+    - **POSTAL.CODE** (or **STATE.ABBR**): Represents the postal code of the U.S. states
     - **ANOMALY.LEVEL**: This represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season. It is estimated as a 3-month running mean of ERSST.v4 SST anomalies in the Niño 3.4 region (5°N to 5°S, 120–170°W)
     - **OUTAGE.START.DATE**: This variable indicates the day of the year when the outage event started (as reported by the corresponding Utility in the region)
     - **OUTAGE.START.TIME**: This variable indicates the time of the day when the outage event started (as reported by the corresponding Utility in the region)
