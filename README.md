@@ -57,22 +57,27 @@ Data snippet:
 
 ### Univariate Analysis
 
-Figure 1 <iframe src='assets/uni_1.html' width=800 height=600 frameBorder=0></iframe>
+Figure 1 
+<iframe src='assets/uni_1.html' width=800 height=600 frameBorder=0></iframe>
 
 Figure 1 shows the distribution of outage duration in hours. Outages that lasted under 5 hours are the most common at 38.8%, followed by outages that lasted between 5 to 15 hours at 14.1%. The histogram then gradually flatten out with decreasing proportions as duration increases.
 
-
-Figure 2 <iframe src='assets/uni_2.html' width=800 height=600 frameBorder=0></iframe>
+Figure 2 
+<iframe src='assets/uni_2.html' width=800 height=600 frameBorder=0></iframe>
 
 Figure 2 shows the distribution of outage cause categories. Outages caused by severe weather are the most common at 49.7%, followed by outages caused by intentional attacks and system operability disruptions, at 27.2% and 8.3%, respectively. The least common cause of outages is islanding at 2.9%.
 
 ### Bivariate Analysis
 
-Figure 3 <iframe src='assets/bi_1.html' width=800 height=600 frameBorder=0></iframe>
+Figure 3 
+<iframe src='assets/bi_1.html' width=800 height=600 frameBorder=0></iframe>
 
-Figure 3 shows a scatterplot between outage duration in hours and monthly residential electricity price. Not considering outliers, there is no apparent trend shown. It seems that the majority of outages are less than 200 hours in duration, with a range of monthly residential electricity price between 6 to 20 cents per kilowatt-hour. 
+Figure 3 shows a scatterplot between outage duration in hours and monthly residential electricity price. Not considering outliers, there is no apparent trend shown. The majority of outages are less than 200 hours in duration, with a range of monthly residential electricity price between 6 to 20 cents per kilowatt-hour. 
 
+Figure 4
+<iframe src='assets/bi_2.html' width=800 height=600 frameBorder=0></iframe>
 
+Figure 4 shows a scatterplot between outage duration in hours and per capita real gross state product. Not considering outliers, there is no apparent trend shown. Similar to previous plot, the majority of outages are less than 200 hours in duration, with a range of per capita gross state product between 31K to 65K U.S. dollars. 
 
 ## Assessment of Missingness
 
