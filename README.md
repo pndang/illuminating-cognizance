@@ -101,7 +101,7 @@ Figure 5
 Figure 5 shows average outage duration aggregated by state and cause categories. Looking at Michigan for example, equipment failure has the greatest average outage duration at approximately 440.6 hours, followed by severe weather at 80.5 hours. Notably, severe weather seems to be a common cause in virtually every state.
 
 Figure 6
-<iframe src='assets/multi_2.html' width=1111 height=500 frameBorder=0></iframe>
+<iframe src='assets/multi_2.html' width=1100 height=500 frameBorder=0></iframe>
 
 Figure 6 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an unusually high average ONI Index at 2.3. 
 
@@ -139,6 +139,7 @@ demand lost have <b>different</b> distributions. The observed difference is <b>u
 - The median is the appropriate measure of central tendency in this case because 1) we are interested in the peak demand, in which the median lies closer to the window, and 2) the distribution of outage start times is **not** normal, therefore the the mean is biased towards the outliers of start times.
 <br>
 <br>
+
 **Significance level**: 5%
 
 **Method**: shuffle DEMAND.MISSING (status of missing) column to simulate under null hypothesis
