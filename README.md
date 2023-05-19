@@ -81,7 +81,29 @@ Figure 4 shows a scatterplot between outage duration in hours and per capita rea
 
 ### Interesting Aggregates
 
+Pivot table snippet
 
+| U.S._STATE   |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
+|:-------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
+| Florida      |           9.24167   |                 nan     |             0.833333 |   nan       |         72      |         107.003  |                         3.42833 |
+| California   |           8.74683   |                 102.577 |            15.7743   |     3.58095 |         33.8019 |          48.8062 |                         6.06111 |
+| Kentucky     |          10.8667    |                 209.5   |             1.8      |   nan       |        nan      |          74.6685 |                       nan       |
+| Texas        |           6.76      |                 232     |             4.97949  |   nan       |         19.0069 |          64.2482 |                        13.5133  |
+| Indiana      |           0.0166667 |                 204     |             7.03125  |     2.08889 |        nan      |          75.3882 |                        77.86    |
+
+The pivot table above shows the average outage duration aggregated by state and cause category. When visualized, the data facilitates a comparison of the cause category composition of outages among states, particularly information on which outage categories are prevalent in which states, or not, knowing this can help planners channel investments and effort toward the most appropriate solutions.
+
+#### Interesting multivariate plots
+
+Figure 5
+<iframe src='assets/multi_1.html' width=1500 height=1000 frameBorder=0></iframe>
+
+Figure 5 shows average outage duration aggregated by state and cause categories. Looking at Michigan for example, equipment failure has the greatest average outage duration at approximately 440.6 hours, followed by severe weather at 80.5 hours. Notably, severe weather seems to be a common cause in virtually every state.
+
+Figure 6
+<iframe src='assets/multi_2.html' width=900 height=900 frameBorder=0></iframe>
+
+Figure 6 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an usually high average ONI Index at 2.3. 
 
 ## Assessment of Missingness
 
