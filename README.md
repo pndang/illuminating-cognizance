@@ -198,7 +198,7 @@ Figure 13
 
 <iframe src='assets/hyp1_oni_obs_dist_fuel supply emergency.html' width=1000 height=500 frameBorder=0></iframe>
 
-<iframe src='assets/hyp1_oni_obs_dist_internal attack.html' width=1000 height=500 frameBorder=0></iframe>
+<iframe src='assets/hyp1_oni_obs_dist_intentional attack.html' width=1000 height=500 frameBorder=0></iframe>
 
 <iframe src='assets/hyp1_oni_obs_dist_severe weather.html' width=1000 height=500 frameBorder=0></iframe>
 
