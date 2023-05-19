@@ -101,7 +101,7 @@ Figure 5
 Figure 5 shows average outage duration aggregated by state and cause categories. Looking at Michigan for example, equipment failure has the greatest average outage duration at approximately 440.6 hours, followed by severe weather at 80.5 hours. Notably, severe weather seems to be a common cause in virtually every state.
 
 Figure 6
-<iframe src='assets/multi_2.html' width=955 height=500 frameBorder=0></iframe>
+<iframe src='assets/multi_2.html' width=1000 height=500 frameBorder=0></iframe>
 
 Figure 6 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an unusually high average ONI Index at 2.3. 
 
@@ -122,9 +122,9 @@ DEMAND.LOSS.MW is likely to <b>not depend</b> on PCT_WATER_INLAND
 - Recall: PCT_WATER_INLAND ~ percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %)
 
 Figure 7
-<iframe src='assets/aom_perm1_observed_dist.html' width=955 height=500 frameBorder=0></iframe>
+<iframe src='assets/aom_perm1_observed_dist.html' width=1000 height=500 frameBorder=0></iframe>
 
-<!-- Figure 6 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an unusually high average ONI Index at 2.3.  -->
+Figure 7 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an unusually high average ONI Index at 2.3. 
 
 ## Hypothesis Testing
 
