@@ -121,21 +121,19 @@ DEMAND.LOSS.MW could possibly <b>depend</b> on outage start time
 DEMAND.LOSS.MW is likely to <b>not depend</b> on PCT_WATER_INLAND
 - Recall: PCT_WATER_INLAND ~ percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %)
 
-#### Dependency Test 1
+#### Dependency Test 1 (start times)
 
 Figure 7
 <iframe src='assets/aom_perm1_observed_dist.html' width=1000 height=500 frameBorder=0></iframe>
 
 Figure 7 shows the distribution of outage start times by whether peak demand lost was missing. The median start time of outages **with** peak demand is greater, and closer to the peak demand window, than the median start time of outages **without** peak demand; this observation agrees the rationale above.
 
-<b>Null Hypothesis</b>: The start times between outages where the amount of peak 
-demand lost <b>is</b> missing, 
-and outages where the amount of peak demand lost is <b>not</b> missing, have <b>the same</b> distribution. Any observed difference is due to chance alone.
+<b>Null Hypothesis</b>: The start times between outages where the amount of peak demand lost <b>is</b> missing, and outages where the amount of peak demand lost is <b>not</b> missing, have <b>the same</b> distribution. Any observed difference is due to chance alone.
 
 <b>Alternative Hypothesis</b>: The outage start times by missingness of peak 
 demand lost have <b>different</b> distributions. The observed difference is <b>unlikely</b> due to chance alone.
 
-**Test statistic**: difference in group median start time
+**Test statistic**: difference in group median start time (in seconds)
 - The median is the appropriate measure of central tendency in this case because **1)** we are interested in the peak demand, in which the median lies closer to the window, and **2)** the distribution of outage start times is **not** normal, therefore the the mean is biased towards the outliers of start times.
 <br>
 <br>
@@ -147,8 +145,42 @@ demand lost have <b>different</b> distributions. The observed difference is <b>u
 Figure 8
 <iframe src='assets/aom_perm1_results.html' width=1000 height=500 frameBorder=0></iframe>
 
-Figure 8 shows the distribution of outage start times by whether peak demand lost was missing. The median start time of outages **with** peak demand is greater, and closer to the peak demand window, than the median start time of outages **without** peak demand; this observation agrees the rationale abov
+Figure 8 shows the simulated test statistics, differences of median outage start times in seconds, including the observed difference and the 5% significance level. As shown, our observation lies to the left of the significance level.
 
+**Result**: **Fail to reject** the null hypothesis at a 5% significance level 
+- Missingness of peak demand lost is likely to not depend on outage start times
+
+#### Dependency Test 2 (state water percentage)
+
+Figure 9
+<iframe src='assets/aom_perm2_observed_dist.html' width=1000 height=500 frameBorder=0></iframe>
+
+(Note: ignore the "mean" annotation on the boxplot, the mean vertical line only applies to the histogram)
+
+Figure 9 shows the distribution of state water percentage (PCT_WATER_INLAND) by whether peak demand lost is missing. The two distributions have the same median, and the mean is signficantly biased towards outliers states with high proportions of inland water. Although the distribution is not exactly normal, the same median indicates that the two distributions are centered at the same location, and therefore the **Kolmogorov-Smirnov statistic** may be appropriate.
+
+Figure 10
+<iframe src='assets/aom_perm2_cdf.html' width=1000 height=500 frameBorder=0></iframe>
+
+Figure 10 shows the cumulative distribution functions of the two distributions above. The greatest difference seems to be at roughly 1.7 state water percentage.
+
+<b>Null Hypothesis</b>: The distribution of state inland water percentage in outages where peak demand lost <b>is</b> missing is <b>the same</b> as in outages where peak demand lost <b>is not</b> missing. Any observed difference is due to chance alone.
+
+<b>Alternative Hypothesis</b>: The distributions of state inland water percentage between the two groups are different. The observed difference is <b>unlikely</b> due to chance alone.
+
+**Test statistic**: K-S statistic
+
+**Significance level**: 5%
+
+**Method**: shuffle DEMAND.MISSING (status of missing) column to simulate under null hypothesis
+
+Figure 11
+<iframe src='assets/aom_perm2_results.html' width=1000 height=500 frameBorder=0></iframe>
+
+Figure 11 shows the empirical distribution of the K-S Statistic as previously described. Our observed K-S Statistic is roughly 0.084 and lies to the right of the 5% significance level.
+
+**Result**: **Reject** the null hypothesis at a 5% significance level 
+- Missingness of peak demand lost **could possibly** depend on the state proportion of inland water relative to continental U.S. (possibly MAR dependent)
 
 ## Hypothesis Testing
 
