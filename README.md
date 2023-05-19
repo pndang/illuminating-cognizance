@@ -26,7 +26,7 @@ The subject dataset contains information on major power outages in the continent
 
 ### Analysis Question and Significance
 
-<b>Main Question</b>:  Do outage attributes, specifically start time, consumption information, and anomaly level, seem to influence the nature of the outages, as measured by duration and cause category?
+<b>Main Question</b>:  Do power outage attributes, specifically start time, consumption information, cause category, and environmental anomaly level, seem to influence the nature of the outages, as measured by duration and missingness of peak demand?
 - If there are trends, are they statistically significant?
 
 <b>Significance</b>:  Analyzing the relationships between metrics of major power outages can provide data-driven insights that may lead to a better understanding of the factors that contribute to, and the outcomes, of outages. In the context of urban planning, understanding power outages can significantly assist planners and city officials in coordinating preventive/response mechanisms to improve the lives of city inhabitants.
@@ -109,7 +109,22 @@ Figure 6 shows average anomaly level by cause category, subsetted by cause detai
 
 ### NMAR Analysis
 
+The **DEMAND.LOSS.MW** column could be **NMAR - Not Missing At Random**; this is because outages that occurred near the fringes, or completely outside, of peak demand hours (4 PM - 9 PM) will be more likely to not have demand lost data than outages that spanned a full peak demand hours window. In addition, low peak demand lost data maybe omitted (not recorded) if considered trivial, therefore lower values of DEMAND.LOSS.MW are likely to be missing (NMAR - missingness depends on the values themselves).
 
+**Potential additional data**: Knowing the specific peak demand hours window in each outage region could explain the missingness of peak demand lost data by making it MAR under the rationale above. The general concensus for peak electricity demand hours window is 4 PM - 9 PM; however, this window may vary across different places.
+
+### Missingness Dependency
+
+DEMAND.LOSS.MW could possibly <b>depend</b> on outage start time 
+- Rationale: A short outage that began outside of high-demand hours (4 PM - 9 PM) is likely to not have data for DEMAND.LOSS.MW
+
+DEMAND.LOSS.MW is likely to <b>not depend</b> on PCT_WATER_INLAND
+- Recall: PCT_WATER_INLAND ~ percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %)
+
+Figure 7
+<iframe src='assets/aom_perm1_observed_dist.html' width=955 height=500 frameBorder=0></iframe>
+
+<!-- Figure 6 shows average anomaly level by cause category, subsetted by cause detail. As mentioned, severe weather as a cause category triumphs over other categories in terms of commonality, with "public appeal" having an unusually high average ONI Index at 2.3.  -->
 
 ## Hypothesis Testing
 
