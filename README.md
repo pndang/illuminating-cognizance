@@ -147,7 +147,7 @@ Figure 8
 
 Figure 8 shows the simulated test statistics, differences of median outage start times in seconds, including the observed difference and the 5% significance level. As shown, our observation lies to the left of the significance level.
 
-**Result**: P-value = 0.1834, **Fail to reject** the null hypothesis at a 5% significance level 
+**Result**: P-value = 0.1796, **Fail to reject** the null hypothesis at a 5% significance level 
 - Missingness of peak demand lost is likely to not depend on outage start times.
 
 #### Dependency Test 2 (state water percentage)
@@ -179,7 +179,7 @@ Figure 11
 
 Figure 11 shows the empirical distribution of the K-S Statistic as previously described. Our observed K-S Statistic is roughly 0.084 and lies to the right of the 5% significance level.
 
-**Result**: P-value = 0.0042, **Reject** the null hypothesis at a 5% significance level 
+**Result**: P-value = 0.0036, **Reject** the null hypothesis at a 5% significance level 
 - Missingness of peak demand lost **could possibly** depend on the state proportion of inland water relative to continental U.S. (possibly MAR dependent).
 
 ## Hypothesis Testing
@@ -234,7 +234,7 @@ Figure 14
 
 Figure 14 shows the empirical distribution of the simulated TVDs, in which our observed TVD lies to the right of the 5% signficance level. 
 
-**Conclusion**: P-value = 0.0022, **Reject** the null hypothesis at a 5% significance level. 
+**Conclusion**: P-value = 0.0014, **Reject** the null hypothesis at a 5% significance level. 
 
 The distribution of cause categories in outages with **extreme** anomaly levels are statistically significantly **different** than outages with **regular** anomaly levels.
 
