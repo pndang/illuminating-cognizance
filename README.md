@@ -136,7 +136,7 @@ and outages where the amount of peak demand lost is <b>not</b> missing, have <b>
 demand lost have <b>different</b> distributions. The observed difference is <b>unlikely</b> due to chance alone.
 
 **Test statistic**: difference in group median start time
-- The median is the appropriate measure of central tendency in this case because 1) we are interested in the peak demand, in which the median lies closer to the window, and 2) the distribution of outage start times is **not** normal, therefore the the mean is biased towards the outliers of start times.
+- The median is the appropriate measure of central tendency in this case because **1)** we are interested in the peak demand, in which the median lies closer to the window, and **2)** the distribution of outage start times is **not** normal, therefore the the mean is biased towards the outliers of start times.
 <br>
 <br>
 
@@ -144,7 +144,10 @@ demand lost have <b>different</b> distributions. The observed difference is <b>u
 
 **Method**: shuffle DEMAND.MISSING (status of missing) column to simulate under null hypothesis
 
+Figure 8
+<iframe src='assets/aom_perm1_results.html' width=1000 height=500 frameBorder=0></iframe>
 
+Figure 8 shows the distribution of outage start times by whether peak demand lost was missing. The median start time of outages **with** peak demand is greater, and closer to the peak demand window, than the median start time of outages **without** peak demand; this observation agrees the rationale abov
 
 
 ## Hypothesis Testing
