@@ -1,5 +1,5 @@
 # Illuminating Cognizance
-DSC 80 Project - A Comprehensive Look Into Major Power Outages in the U.S.
+Project - A Comprehensive Look Into Major Power Outages in the U.S.
 
 ## Introduction 
 
@@ -23,6 +23,8 @@ The subject dataset contains information on major power outages in the continent
     - **RES.PRICE**: Monthly electricity price in the residential sector (cents/kilowatt-hour)
     - **PC.REALGSP.STATE**: Per capita real gross state product (GSP) in the U.S. state (measured in 2009 chained U.S. dollars)
     - **PCT_WATER_INLAND**: Percentage of inland water area in the U.S. state as compared to the overall inland water area in the continental U.S. (in %)
+
+Source: [data](https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks)
 
 ### Analysis Question and Significance
 
