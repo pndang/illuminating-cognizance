@@ -1,6 +1,8 @@
 # Illuminating Cognizance
 DSC 80 Project - A Comprehensive Look Into Major Power Outages in the U.S.
 
+My predictive analysis on this dataset can be found [here](https://pndang.com/illuminating-intelligence/).
+
 ## Introduction 
 
 ### About the Data:
